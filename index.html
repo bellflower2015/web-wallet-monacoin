@@ -104,7 +104,7 @@
 			}
 		</style>
 		<title>Wallet</title>
-		<meta name="description" content="Bellcoin Web Wallet">
+		<meta name="description" content="Monacoin Web Wallet">
 	</head>
 	<body>
 		<!-- Navbar -->
@@ -112,7 +112,7 @@
 			<div class="container">
 				<a href="#" class="navbar-brand">
 					<img id="logo" src="/logo_s.png" />
-					<b tkey="wallet-title">Bellcoin Wallet</b>
+					<b tkey="wallet-title">Monacoin Wallet</b>
 				</a>
 				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -204,7 +204,7 @@
 									<a class="nav-link tab-link" data-tab-name="wallet-send" data-tab-family="wallet-block" href="#" tkey="send"></a>
 								</li>
 								<li class="nav-item mr-2">
-									<a id="history-link" class="nav-link" target="_blank" href="https://blockbook-bellcoin.web4u.jp/address/" tkey="history"></a>
+									<a id="history-link" class="nav-link" target="_blank" href="https://blockbook-monacoin.web4u.jp/address/" tkey="history"></a>
 								</li>
 								<li class="nav-item">
 									<a class="nav-link tab-link" data-tab-name="wallet-keys" data-tab-family="wallet-block" href="#" tkey="keys"></a>
@@ -463,7 +463,7 @@
 		<!-- Footer :3 -->
 		<footer class="mb-3">
 			<div class="container text-center">
-				Made with <span class="entypo heart text-danger"></span> by <a target="_blank" href="https://github.com/sugarchain-project/web-wallet">Volbil</a> &amp; <a target="_blank" href="https://bellcoin.web4u.jp">Bellcoin</a>
+				Made with <span class="entypo heart text-danger"></span> by <a target="_blank" href="https://github.com/sugarchain-project/web-wallet">Volbil</a> &amp; <a target="_blank" href="https://monacoin.web4u.jp">Monacoin</a>
 			</div>
 		</footer>
 
@@ -474,24 +474,24 @@
 			var walletTimer = false
 			var walletVersion = '0.5'
 			var networkConfigs = {
-				'BELL': {
-					'uri': 'bellcoin:',
-					'title': 'Bellcoin Wallet',
-					'name': 'Main Network (BELL)',
-					'api': 'https://api.bellcoin.web4u.jp',
-					'ticker': 'BELL',
+				'MONA': {
+					'uri': 'monacoin:',
+					'title': 'Monacoin Wallet',
+					'name': 'Main Network (MONA)',
+					'api': 'https://api.monacoin.web4u.jp',
+					'ticker': 'MONA',
 					'decimals': 8,
 					'fee': 0.00001,
 					'network': {
-						'messagePrefix': '\x17Bellcoin Signed Message:\n',
+						'messagePrefix': '\x17Monacoin Signed Message:\n',
 						'bip32': {
 							'public': 0x0488b21e,
 							'private': 0x0488ade4
 						},
-						'bech32': 'bm',
-						'pubKeyHash': 0x19,
-						'scriptHash': 0x55,
-						'wif': 0x80
+						'bech32': 'mona',
+						'pubKeyHash': 0x32,
+						'scriptHash': 0x37,
+						'wif': 0xb0
 					}
 				}
 			}
@@ -499,10 +499,10 @@
 			// Explorer links
 			var blockExplorer = {
 				'address': function(address) {
-					return 'https://blockbook-bellcoin.web4u.jp/address/' + address
+					return 'https://blockbook-monacoin.web4u.jp/address/' + address
 				},
 				'tx': function(tx) {
-					return 'https://blockbook-bellcoin.web4u.jp/tx/' + tx
+					return 'https://blockbook-monacoin.web4u.jp/tx/' + tx
 				}
 			}
 
@@ -893,7 +893,7 @@
 						globalData.balance = data.result.balance
 						balance = amountFormat(globalData.balance)
 					} else {
-						showMessage(messages.errors['balance-load-failed'])
+						showMessage(messages.error['balance-load-failed'])
 					}
 
 					$('.wallet-balance .amount').text(balance)
